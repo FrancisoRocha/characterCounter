@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Character counter</title>
+  <link rel="stylesheet" href="./style/normalize.css">
+  <link rel="stylesheet" href="./style/style.css">
 </head>
-<body>
 
-  Analyze your text in real-time.
+<body class="dark">
 
-  Start typing here… (or paste your text)
 
-  Exclude Spaces
-  Set Character Limit
+  <div class="container">
+    <!-- HEADER -->
+    <header class="header">
+      <img src="/starter-code/assets/images/logo-dark-theme.svg" alt="icon Character counter" class="iconCounter">
 
-  Approx. reading time: <!-- Insert number --> minutes
+      <!-- BOTON DARK THEME -->
+      <button class="btnTheme dark">
+        <img src="/starter-code/assets/images/icon-sun.svg" alt="icon Sun" class="iconTheme">
+      </button>
+    </header>
 
-  <!-- Insert number -->
-  Total Characters
+    <h1 class="title dark">Analyze your text in real-time.</h1>
 
-  <!-- Insert number -->
-  Word Count
+    <div class="container__text">
+      <!-- TEXAREA AND INPUTS -->
+      <textarea name="wrapper" id="wrapper" class="wrapper dark" placeholder="Start typing here… (or paste your text)"></textarea>
+      <form class="option__container">
+        <!-- EXCLUDE SPACES -->
+        <input type="checkbox" id="spaces" class="spaces dark" name="spaces">
+        <label for="spaces" class="excludeSpace dark">Exclude Spaces</label>
+        <!-- Character limit -->
+        <input type="checkbox" id="character" class="character dark" name="character">
+        <label for="character" class="setCharacter dark">Set Character Limit</label>
 
-  <!-- Insert number -->
-  Sentence Count
+        <p class="reading dark">Approx. reading time: 0 minute</p>
+      </form>
 
-  Letter Density
-  No characters found. Start typing to see letter density.
+    </div>
+  
+  </div>
 
 </body>
+
 </html>
