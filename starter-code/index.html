@@ -12,7 +12,6 @@
 
 <body class="dark">
 
-
   <div class="container">
     <!-- HEADER -->
     <header class="header">
@@ -30,18 +29,41 @@
       <!-- TEXAREA AND INPUTS -->
       <textarea name="wrapper" id="wrapper" class="wrapper dark" placeholder="Start typing here… (or paste your text)"></textarea>
       <form class="option__container">
+
         <!-- EXCLUDE SPACES -->
-        <input type="checkbox" id="spaces" class="spaces dark" name="spaces">
-        <label for="spaces" class="excludeSpace dark">Exclude Spaces</label>
+        <label for="spaces" class="excludeSpace dark">
+          <input type="checkbox" id="spaces" class="spaces dark" name="spaces">
+          Exclude Spaces
+        </label>
+        
         <!-- Character limit -->
-        <input type="checkbox" id="character" class="character dark" name="character">
-        <label for="character" class="setCharacter dark">Set Character Limit</label>
+        <label for="character" class="setCharacter dark">
+          <input type="checkbox" id="character" class="character dark" name="character">
+          Set Character Limit
+        </label>
 
         <p class="reading dark">Approx. reading time: 0 minute</p>
       </form>
-
     </div>
-  
+
+    <div class="content__counter">
+      <!-- TOTAL CHARACTER -->
+      <div class="totalCharacters">
+        <p class="total__number">0</p>
+        <p class="title__total">Total Characters</p>
+      </div>
+      <!-- TOTAL CHARACTER -->
+      <div class="wordCount">
+        <p class="word__number">0</p>
+        <p class="title__total">Word Count</p>
+      </div>
+      <!-- TOTAL CHARACTER -->
+      <div class="sentenceCount">
+        <p class="sentence__number">0</p>
+        <p class="title__total">Sentence Count</p>
+      </div>
+    </div>
+
   </div>
 
 </body>
