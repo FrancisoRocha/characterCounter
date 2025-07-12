@@ -27,7 +27,8 @@
 
     <div class="container__text">
       <!-- TEXAREA AND INPUTS -->
-      <textarea name="wrapper" id="wrapper" class="wrapper dark" placeholder="Start typing here… (or paste your text)"></textarea>
+      <textarea name="wrapper" id="wrapper" class="wrapper dark"
+        placeholder="Start typing here… (or paste your text)"></textarea>
       <form class="option__container">
 
         <!-- EXCLUDE SPACES -->
@@ -35,7 +36,7 @@
           <input type="checkbox" id="spaces" class="spaces dark" name="spaces">
           Exclude Spaces
         </label>
-        
+
         <!-- Character limit -->
         <label for="character" class="setCharacter dark">
           <input type="checkbox" id="character" class="character dark" name="character">
@@ -62,6 +63,34 @@
         <p class="sentence__number">0</p>
         <p class="title__total">Sentence Count</p>
       </div>
+    </div>
+
+    <!-- DENSITY GRAPH -->
+    <div class="letter-density">
+
+    <p class="title__graph dark">Letter Density</p>
+
+    <p class="message dark">No characters found. Start typing to see letter density.</p>
+      <!-- 
+      <div class="bar">
+        <span class="letter dark">E</span>
+        <div class="track dark">
+          <div class="fill" style="width: 80%"></div>
+        </div>
+        <span class="value dark">40 (16.06%)</span>
+      </div>
+
+      <div class="bar">
+        <span class="letter dark">I</span>
+        <div class="track dark">
+          <div class="fill" style="width: 58%"></div>
+        </div>
+        <span class="value dark">29 (11.65%)</span>
+      </div>
+
+      Repite para T, O, N
+
+      <div class="see-more dark">See more</div> -->
     </div>
 
   </div>
