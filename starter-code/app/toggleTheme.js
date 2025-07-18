@@ -15,6 +15,7 @@ export const toggleTheme = () => {
     const textArea = document.querySelector('.wrapper');
     const spaces = document.querySelector('.spaces');
     const character = document.querySelector('.character');
+    const numbers = document.querySelector('.numbers');
     const reading = document.querySelector('.reading');
     const titleGraph = document.querySelector('.title__graph');
     const message = document.querySelector('.message');
@@ -57,20 +58,23 @@ export const toggleTheme = () => {
 
     setCharacter.classList.toggle('dark', isDark);
     setCharacter.classList.toggle('light', !isDark);
-    
+
     spaces.classList.toggle('dark', isDark);
     spaces.classList.toggle('light', !isDark);
-    
+
+    numbers.classList.toggle('dark', isDark);
+    numbers.classList.toggle('light', !isDark);
+
     character.classList.toggle('dark', isDark);
     character.classList.toggle('light', !isDark);
 
     reading.classList.toggle('dark', isDark);
     reading.classList.toggle('light', !isDark);
 
-    //DENSITY GRAPH 
+    //DENSITY GRAPH
     titleGraph.classList.toggle('dark', isDark);
     titleGraph.classList.toggle('light', !isDark);
-    
+
     message.classList.toggle('dark', isDark);
     message.classList.toggle('light', !isDark);
 
@@ -88,10 +92,9 @@ export const toggleTheme = () => {
         val.classList.toggle('dark', isDark);
         val.classList.toggle('light', !isDark);
     })
-    
-    seeMore.classList.toggle('dark', isDark);
-    seeMore.classList.toggle('light', !isDark);
 
+    // seeMore.classList.toggle('dark', isDark);
+    // seeMore.classList.toggle('light', !isDark);
 
 }
 
