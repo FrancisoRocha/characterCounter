@@ -1,3 +1,4 @@
+import { inputLimit } from "./characterLimit.js";
 import { sentenceCount } from "./sentenceCount.js";
 import { toggleTheme } from "./toggleTheme.js";
 import { updateTotal } from "./totalCounter.js";
@@ -7,3 +8,4 @@ toggleTheme();
 updateTotal()
 countWords();
 sentenceCount();
+inputLimit();

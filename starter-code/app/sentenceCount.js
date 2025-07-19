@@ -4,7 +4,7 @@ const sentenceCountText = document.querySelector('.sentence__number');
 export function sentenceCount(){
 
   const countNumber = textAreaSentence.value.trim();
-  console.log(countNumber)
+ // console.log(countNumber)
 
   if(countNumber === ''){
     sentenceCountText.textContent = 0;
