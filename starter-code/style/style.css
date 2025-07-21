@@ -559,6 +559,20 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 140%;
     letter-spacing: -0.6px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.6rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.see-more:hover {
+    transform: translateY(-2px);
+}
+
+.see-more svg {
+    transition: transform 0.3s ease;
 }
 
 .message{
@@ -626,8 +640,13 @@ body.dark {
     background-color: var(--neutral-800);
 }
 
-.see-more{
+.see-more.dark{
     color: var(--neutral-200);
+    background-color: var(--neutral-800);
+}
+
+.see-more.dark:hover {
+    background-color: var(--neutral-700);
 }
 
 .message.dark{
@@ -692,6 +711,11 @@ body.light {
 
 .see-more.light{
     color: var(--neutral-900);
+    background-color: var(--neutral-200);
+}
+
+.see-more.light:hover {
+    background-color: var(--neutral-100);
 }
 
 .message.light{

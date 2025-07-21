@@ -93,8 +93,12 @@ export const toggleTheme = () => {
         val.classList.toggle('light', !isDark);
     })
 
-    // seeMore.classList.toggle('dark', isDark);
-    // seeMore.classList.toggle('light', !isDark);
+    // Actualizar todos los botones see-more que existan dinámicamente
+    const seeMoreButtons = document.querySelectorAll('.see-more');
+    seeMoreButtons.forEach(btn => {
+        btn.classList.toggle('dark', isDark);
+        btn.classList.toggle('light', !isDark);
+    });
 
 }
 

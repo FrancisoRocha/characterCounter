@@ -2,6 +2,10 @@ const wrapperText = document.querySelector('.wrapper');
 const letterDensityContainer = document.querySelector('.letter-density');
 const messageElement = document.querySelector('.message');
 
+let isExpanded = false;
+let allLetters = [];
+let totalLetters = 0;
+
 export function updateLetterDensity() {
   const text = wrapperText.value;
 
@@ -14,10 +18,16 @@ export function updateLetterDensity() {
   // Desestructuración y procesamiento del texto
   const letterCounts = getLetterCounts(text);
   const sortedLetters = getSortedLetters(letterCounts);
-  const totalLetters = getTotalLetters(letterCounts);
+  totalLetters = getTotalLetters(letterCounts);
+
+  // Guardar todas las letras para el toggle
+  allLetters = sortedLetters;
+  
+  // Reset del estado expandido cuando cambia el texto
+  isExpanded = false;
 
   // Generar el gráfico
-  generateLetterBars(sortedLetters, totalLetters);
+  generateLetterBars();
 }
 
 function getLetterCounts(text) {
@@ -44,25 +54,26 @@ function getTotalLetters(letterCounts) {
   return Object.values(letterCounts).reduce((sum, count) => sum + count, 0);
 }
 
-function generateLetterBars(sortedLetters, totalLetters) {
+function generateLetterBars() {
   // Ocultar mensaje por defecto
   messageElement.style.display = 'none';
 
-  // Limpiar barras existentes
-  const existingBars = letterDensityContainer.querySelectorAll('.bar');
-  existingBars.forEach(bar => bar.remove());
+  // Limpiar barras existentes y botón see more
+  const existingElements = letterDensityContainer.querySelectorAll('.bar, .see-more');
+  existingElements.forEach(element => element.remove());
 
-  // Generar nuevas barras (mostrar solo las primeras 5-6)
-  const topLetters = sortedLetters.slice(0, 6);
+  // Determinar qué letras mostrar
+  const lettersToShow = isExpanded ? allLetters : allLetters.slice(0, 5);
 
-  topLetters.forEach(([letter, count]) => {
+  // Generar barras para las letras a mostrar
+  lettersToShow.forEach(([letter, count]) => {
     const percentage = ((count / totalLetters) * 100).toFixed(2);
     const barElement = createBarElement(letter, count, percentage);
     letterDensityContainer.appendChild(barElement);
   });
 
-  // Agregar "See more" si hay más letras
-  if (sortedLetters.length > 6) {
+  // Agregar "See more" o "See less" si hay más de 5 letras
+  if (allLetters.length > 5) {
     const seeMoreElement = createSeeMoreElement();
     letterDensityContainer.appendChild(seeMoreElement);
   }
@@ -85,18 +96,45 @@ function createBarElement(letter, count, percentage) {
 
 function createSeeMoreElement() {
   const seeMoreDiv = document.createElement('div');
-  seeMoreDiv.className = 'see-more dark';
-  seeMoreDiv.textContent = 'See more';
+  
+  // Aplicar el tema correcto basado en el body
+  const isDarkTheme = document.body.classList.contains('dark');
+  seeMoreDiv.className = isDarkTheme ? 'see-more dark' : 'see-more light';
+  
+  // Determinar el texto y el ícono según el estado
+  const text = isExpanded ? 'See less' : 'See more';
+  const iconPath = isExpanded ? 'M7 14l5-5 5 5z' : 'M7 10l5 5 5-5z';
+  
+  seeMoreDiv.innerHTML = `
+    <span>${text}</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;">
+      <path d="${iconPath}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `;
+
+  // Agregar event listener para el toggle
+  seeMoreDiv.addEventListener('click', toggleLetterDisplay);
+  
   return seeMoreDiv;
+}
+
+function toggleLetterDisplay() {
+  isExpanded = !isExpanded;
+  generateLetterBars();
 }
 
 function showDefaultMessage() {
   // Mostrar mensaje por defecto
   messageElement.style.display = 'block';
 
-  // Limpiar barras existentes
-  const existingBars = letterDensityContainer.querySelectorAll('.bar, .see-more');
-  existingBars.forEach(element => element.remove());
+  // Limpiar barras existentes y reset del estado
+  const existingElements = letterDensityContainer.querySelectorAll('.bar, .see-more');
+  existingElements.forEach(element => element.remove());
+  
+  // Reset del estado
+  isExpanded = false;
+  allLetters = [];
+  totalLetters = 0;
 }
 
 // Event listener para actualizar cuando se escriba
