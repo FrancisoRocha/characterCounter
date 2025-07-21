@@ -2,6 +2,7 @@ const wrapperText = document.querySelector('.wrapper');
 const inputChecked = document.querySelector('.character');
 const inputLimitNumber = document.querySelector('.numbers');
 const errorMessage = document.querySelector('#error-message');
+const inputSpace = document.querySelector('.spaces');
 
 export function inputLimit(){
 
@@ -10,7 +11,10 @@ export function inputLimit(){
     //Muestra el contador de caracteres
     inputLimitNumber.style.display = 'inline-block';
 
-    const text = wrapperText.value.length;
+    // Contar caracteres según si se excluyen espacios o no
+    const text = inputSpace && inputSpace.checked
+      ? wrapperText.value.replace(/\s/g, '').length  // Sin espacios
+      : wrapperText.value.length;                     // Con espacios
 
     // Ocultar mensaje de error por defecto
     errorMessage.style.display = 'none';
@@ -41,3 +45,8 @@ export function inputLimit(){
 
 wrapperText.addEventListener('input', inputLimit);
 inputChecked.addEventListener('click', inputLimit);
+
+// Agregar listener para el checkbox de espacios
+if(inputSpace) {
+  inputSpace.addEventListener('click', inputLimit);
+}
