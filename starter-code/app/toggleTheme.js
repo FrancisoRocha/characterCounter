@@ -20,9 +20,6 @@ export const toggleTheme = () => {
     const titleGraph = document.querySelector('.title__graph');
     const message = document.querySelector('.message');
     const letter = document.querySelectorAll('.letter');
-    const track = document.querySelectorAll('.track');
-    const value = document.querySelectorAll('.value');
-    const seeMore = document.querySelector('.see-more');
 
     const isDark = body.classList.toggle('dark');
 
@@ -83,11 +80,13 @@ export const toggleTheme = () => {
         el.classList.toggle('light', !isDark);
     });
 
+    const track = document.querySelectorAll('.track');
     track.forEach(tra => {
         tra.classList.toggle('dark', isDark);
         tra.classList.toggle('light', !isDark);
     })
 
+    const value = document.querySelectorAll('.value');
     value.forEach(val => {
         val.classList.toggle('dark', isDark);
         val.classList.toggle('light', !isDark);
