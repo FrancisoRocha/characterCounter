@@ -29,8 +29,8 @@ export const toggleTheme = () => {
     //CAMBIAR EL LOGO
     if(iconCounter){
         iconCounter.src = isDark
-        ? '/starter-code/assets/images/logo-dark-theme.svg'
-        : '/starter-code/assets/images/logo-light-theme.svg';
+        ? 'assets/images/logo-dark-theme.svg'
+        : 'assets/images/logo-light-theme.svg';
     }
 
     //CAMBIAR EL COLOR DEL BOTON SEGUN EL THEME
@@ -40,8 +40,8 @@ export const toggleTheme = () => {
     //CAMBIAR ICON DE BOTON DE THEME
     if(iconBtn){
         iconBtn.src = isDark
-        ? '/starter-code/assets/images/icon-sun.svg'
-        : '/starter-code/assets/images/icon-moon.svg';
+        ? 'assets/images/icon-sun.svg'
+        : 'assets/images/icon-moon.svg';
     }
 
     //CAMBIAR TITULO
