@@ -83,12 +83,16 @@ function createBarElement(letter, count, percentage) {
   const barDiv = document.createElement('div');
   barDiv.className = 'bar';
 
+  // Aplicar el tema correcto basado en el body
+  const isDarkTheme = document.body.classList.contains('dark');
+  const themeClass = isDarkTheme ? 'dark' : 'light';
+
   barDiv.innerHTML = `
-    <span class="letter dark">${letter.toUpperCase()}</span>
-    <div class="track dark">
+    <span class="letter ${themeClass}">${letter.toUpperCase()}</span>
+    <div class="track ${themeClass}">
       <div class="fill" style="width: ${percentage}%"></div>
     </div>
-    <span class="value dark">${count} (${percentage}%)</span>
+    <span class="value ${themeClass}">${count} (${percentage}%)</span>
   `;
 
   return barDiv;
